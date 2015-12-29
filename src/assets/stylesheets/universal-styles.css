@@ -1,0 +1,11 @@
+/* Styles for all pages */
+.noscript {
+  color: #f78686;
+  font-weight: bold;
+}
+.feedback-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  transition: bottom 0.1s;
+}

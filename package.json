@@ -1,0 +1,15 @@
+{
+  "name": "elf-frontend",
+  "version": "1.0.0",
+  "description": "Frontend interface for Elf",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hussain Khalil",
+  "license": "UNLICENSED"
+}

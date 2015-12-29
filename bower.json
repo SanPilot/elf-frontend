@@ -1,0 +1,18 @@
+{
+  "name": "elf-frontend",
+  "authors": [
+    "Hussain Khalil <hussainpilot05@gmail.com>"
+  ],
+  "description": "Frontend interface for Elf",
+  "main": "",
+  "moduleType": [],
+  "license": "None",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "polymer": "~1.2.3",
+    "material-design-lite": "~1.0.6",
+    "material-icons": "~0.1.0"
+  }
+}

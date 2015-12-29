@@ -1,0 +1,56 @@
+/* This document contains the styles for the Sign In Page */
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+/* Contains signin-dialouge */
+.signin-container {
+  height: 100%;
+  /* Display as flexbox for vertical and horizontal centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.signin-box {
+  padding: 24px;
+}
+
+.signin-box > .elf-logo {
+  margin: auto;
+}
+
+.signin-box > .signin-text {
+  text-align: center;
+}
+
+.signin-input > input {
+  font-family: monospace !important;
+}
+
+/* Sign In error message area. To reveal, add text, set display: flex, opacity: 1, margin-bottom: 20px */
+.signin-message {
+  display: none;
+  border-radius: 2px;
+  background-color: #f93c3c;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  height: 36px;
+  margin-bottom: 0;
+  opacity: 0;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  transition: opacity, margin-bottom 2s;
+}
+
+.signin-button {
+  width: 100%;
+  float: right;
+}
