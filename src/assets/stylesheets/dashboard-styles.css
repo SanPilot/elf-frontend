@@ -1,4 +1,20 @@
-/* Styles for the dashboard page */
-.layout-body {
-  padding: 24px 24px 0 24px;
+/* Styles for dashboard page */
+
+/* Override default left padding of 60px for hamburger menu icon */
+.header-row {
+  padding-left: 24px;
+}
+
+/* Searchbar styles */
+.search {
+  margin: 0 24px;
+}
+
+.search-input {
+  background-color: blue;
+}
+
+/* Override MDL's hide header for mobile behavior */
+header.header {
+  display: flex !important;
 }
