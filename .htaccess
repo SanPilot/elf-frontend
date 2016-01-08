@@ -1,3 +1,4 @@
-Options Indexes FollowSymLinks
+Options FollowSymLinks
+Options -Indexes
 Require all granted
 Allow from all
