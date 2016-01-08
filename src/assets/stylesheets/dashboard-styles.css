@@ -15,6 +15,6 @@
 }
 
 /* Override MDL's hide header for mobile behavior */
-header.header {
+.header {
   display: flex !important;
 }
