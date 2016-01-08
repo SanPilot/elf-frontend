@@ -1,7 +1,3 @@
 Options Indexes FollowSymLinks
-AllowOverride All
 Require all granted
 Allow from all
-LogLevel info
-ErrorLog ${APACHE_LOG_DIR}/error.log
-CustomLog ${APACHE_LOG_DIR}/access.log combined
