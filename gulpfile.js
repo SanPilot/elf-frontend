@@ -30,11 +30,12 @@ var paths = {
   libs: [bases.src + 'components/**/*'],
   styles: [bases.src + 'assets/stylesheets/**/*'],
   html: [
-    [bases.src + 'pages/sign-in/*', bases.dist + 'pages/sign-in/'],
-    [bases.src + 'pages/dashboard/*', bases.dist + 'pages/dashboard/']
+    [bases.src + 'pages/sign-in/*', bases.dist],
+    [bases.src + 'pages/dashboard/*', bases.dist + 'dashboard/']
   ],
   images: [bases.src + 'assets/images/**/*'],
   extras: [bases.src + 'robots.txt'],
+  fonts: [bases.src + 'assets/fonts/*']
 };
 
 // File where the favicon markups are stored
@@ -71,8 +72,8 @@ gulp.task('scripts', ['clean'], function() {
   gulp.src(paths.scripts)
   .pipe(jshint())
   .pipe(jshint.reporter('default'))
-  .pipe(uglify())
   .pipe(sourcemaps.init())
+  .pipe(uglify())
   .pipe(concat('app.min.js'))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest(bases.dist + 'scripts/'));
@@ -93,6 +94,10 @@ gulp.task('copy', ['clean'], function() {
   // Copy lib scripts, maintaining the original directory structure
   gulp.src(paths.libs)
   .pipe(gulp.dest(bases.dist + 'components/'));
+
+  // Copy fonts
+  gulp.src(paths.fonts)
+  .pipe(gulp.dest(bases.dist + 'assets/fonts/'));
 
   // Copy extra files
   gulp.src(paths.extras)
