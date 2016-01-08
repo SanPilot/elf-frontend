@@ -34,7 +34,7 @@ var paths = {
     [bases.src + 'pages/dashboard/*', bases.dist + 'dashboard/']
   ],
   images: [bases.src + 'assets/images/**/*'],
-  extras: [bases.src + 'robots.txt'],
+  extras: [bases.src + 'robots.txt', bases.src + '.htaccess'],
   fonts: [bases.src + 'assets/fonts/*']
 };
 
