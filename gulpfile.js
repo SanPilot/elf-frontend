@@ -61,9 +61,9 @@ gulp.task('clean', function() {
 // Process styles
 gulp.task('styles', ['clean'], function() {
   return gulp.src(paths.styles)
-  .pipe(csso())
   .pipe(sourcemaps.init())
   .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
+  .pipe(csso())
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(bases.dist + "assets/stylesheets/"));
 });
