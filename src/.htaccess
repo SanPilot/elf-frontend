@@ -4,3 +4,5 @@ Require all granted
 Allow from all
 ErrorDocument 404 /pages/error/404.html
 Header always append X-Frame-Options SAMEORIGIN
+SetOutputFilter DEFLATE
+SetEnvIfNoCase Request_URI "\.(?:gif|jpe?g|png)$" no-gzip
