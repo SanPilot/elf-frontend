@@ -1,8 +1,21 @@
+# Config for Apache server
+
+# Generic options
 Options FollowSymLinks
 Options -Indexes
 Require all granted
 Allow from all
+
+# Error page
 ErrorDocument 404 /pages/error/404.html
+
+# X-Frame-Options header (security)
 Header always append X-Frame-Options SAMEORIGIN
+
+# Deflate output
 SetOutputFilter DEFLATE
 SetEnvIfNoCase Request_URI "\.(?:gif|jpe?g|png)$" no-gzip
+
+# Caching
+ExpiresActive On
+ExpiresDefault "access plus 1 day"
