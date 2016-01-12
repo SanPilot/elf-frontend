@@ -179,16 +179,5 @@ gulp.task('check-for-favicon-update', function(done) {
   });
 });
 
-// Watching
-gulp.task('watch', function() {
-  gulp.watch("**/*.html", ['inject-favicon-markups']);
-  gulp.watch(paths.scripts, ['scripts']);
-  gulp.watch(paths.images, ['imagemin']);
-  gulp.watch(paths.libs, ['copy']);
-  gulp.watch(paths.extras, ['copy']);
-  gulp.watch(paths.fonts, ['copy']);
-  gulp.watch(paths.styles, ['styles']);
-});
-
 // Define the default task as a sequence of the above tasks
 gulp.task('default', ['clean', 'scripts', 'styles', 'imagemin', 'copy', 'generate-favicon', 'inject-favicon-markups']);
