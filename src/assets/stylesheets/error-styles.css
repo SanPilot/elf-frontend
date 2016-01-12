@@ -1,0 +1,41 @@
+/* Styles for error pages */
+
+body {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.description {
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 200px;
+  margin-left: 20px;
+  line-height: 200%;
+}
+
+.header {
+  font-weight: bold;
+  color: #525252;
+}
+
+.main {
+  font-size: 20px;
+}
+
+.mini {
+  font-size: 15px;
+  color: #3d3d3d;
+}

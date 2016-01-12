@@ -31,7 +31,8 @@ var paths = {
   styles: [bases.src + 'assets/stylesheets/**/*'],
   html: [
     [bases.src + 'pages/sign-in/*', bases.dist],
-    [bases.src + 'pages/dashboard/*', bases.dist + 'dashboard/']
+    [bases.src + 'pages/dashboard/*', bases.dist + 'dashboard/'],
+    [bases.src + 'pages/error/*', bases.dist + 'pages/error/']
   ],
   images: [bases.src + 'assets/images/**/*'],
   extras: [bases.src + 'robots.txt', bases.src + '.htaccess'],
