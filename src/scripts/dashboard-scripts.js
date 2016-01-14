@@ -10,7 +10,7 @@ var searchBar = {
   // Functions for opening/closing search bar
   open: function() {
     searchBar.isOpen = true;
-    $("#open-search-button-icon").css("background-color", "rgba(255, 255, 255, 0.4)");
+    $("#open-search-button-icon").css("background-color", "rgba(255, 255, 255, 0.4)").html("close");
     $("#search").css("display", "flex");
 
     // ¯\_(ツ)_/¯ This setTimeout fixed problems, so I kept it.
@@ -22,7 +22,7 @@ var searchBar = {
 
   close: function() {
     searchBar.isOpen = false;
-    $("#open-search-button-icon").css("background-color", "initial");
+    $("#open-search-button-icon").css("background-color", "initial").html("search");
     $("#search").css({"opacity": 0, "top": 0, "z-index": -999});
     setTimeout(function() {
       $("#search").css("display", "none");
