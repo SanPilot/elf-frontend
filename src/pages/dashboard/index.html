@@ -9,17 +9,36 @@
   <link rel="stylesheet" href="/assets/stylesheets/material-icons-font.css">
   <link rel="stylesheet" href="/assets/stylesheets/dashboard-styles.css">
   <link rel="stylesheet" href="/assets/stylesheets/universal-styles.css">
+  <link rel="stylesheet" href="/components/roboto-fontface/css/roboto-fontface.css">
 </head>
 <body>
   <header class="mdl-layout__header header">
-    <div class="mdl-layout__header-row header-row">
-      <span class="mdl-layout-title title">Dashboard</span>
-      <div class="search">
-        <input type="text" class="search-input" placeholder="Search...">
+    <div class="mdl-layout__header-row header-row" id="header-row">
+      <span class="mdl-layout-title title" id="title">Dashboard</span>
+      <div class="account-info-container">
+        <div class="account-info-names-container">
+          <span class="account-info-name">
+            Hussain Khalil
+          </span>
+          <span class="account-info-name-secondary">
+            hussainpilot05@gmail.com
+          </span>
+        </div>
+        <img height="40" width="40" alt="H" class="account-info-image" src="/assets/images/icons/elf-logo.min.svg">
+        <li class="material-icons account-info-more-arrow">keyboard_arrow_down</li>
+      </div>
+      <div class="open-search-button-container">
+        <li class="open-search-button-icon material-icons" id="open-search-button-icon">search</li>
       </div>
     </div>
   </header>
+  <div class="search" id="search">
+    <span class="search-icon-container"><li class="material-icons search-icon" id="search-icon">search</li></span>
+    <input type="text" class="search-input" id="search-input" placeholder="Search...">
+  </div>
   <script type="text/javascript" src="/components/material-design-lite/material.min.js"></script>
   <script type="text/javascript" src="/components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/scripts/dashboard-scripts.js"></script>
+  <script type="text/javascript" src="/scripts/app.min.js"></script>
 </body>
 </html>

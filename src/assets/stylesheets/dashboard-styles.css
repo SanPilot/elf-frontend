@@ -1,17 +1,101 @@
 /* Styles for dashboard page */
 
+/* Styles for header */
+
 /* Override default left padding of 60px for hamburger menu icon */
 .header-row {
-  padding-left: 24px;
+  padding: 0 0 0 40px;
+}
+
+/* Styles for account info section */
+.account-info-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.account-info-names-container {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.account-info-name {
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: bold;
+}
+
+.account-info-name-secondary {
+  font-style: italic;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+
+.account-info-image {
+  border-radius: 25px;
+  margin-left: 12px;
+}
+
+.account-info-more-arrow {
+  font-size: 20px;
+  margin-left: 12px;
+}
+
+/* Styles for the open search bar button */
+.open-search-button-container {
+  display: flex;
+  align-items: center;
+  float: right;
+  height: 64px;
+  margin: 0 30px;
+}
+
+.open-search-button-icon {
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.1s;
+}
+
+.open-search-button-icon:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Searchbar styles */
 .search {
-  margin: 0 24px;
+  flex-direction: row;
+  align-items: center;
+  background-color: #08298b;
+  padding: 0 40px;
+  opacity: 0;
+  height: 64px;
+  display: none;
+  transition: background-color 0.1s, opacity 0.1s;
+}
+
+.search-icon-container {
+  height: 20px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  font-size: 20px;
+  color: #fff;
+  transition: color 0.1s;
 }
 
 .search-input {
-  background-color: blue;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-size: 15px;
+  width: 100%;
+  color: #fff;
+  transition: color 0.1s;
+}
+
+.search-input:focus {
+  outline: none;
 }
 
 /* Override MDL's hide header for mobile behavior */
