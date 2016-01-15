@@ -11,12 +11,12 @@ var searchBar = {
   open: function() {
     searchBar.isOpen = true;
     $("#open-search-button-icon").css("background-color", "rgba(255, 255, 255, 0.4)").html("close");
-    $("#search").css("display", "flex");
+    $("#content").css("margin-top", "0");
 
     // ¯\_(ツ)_/¯ This setTimeout fixed problems, so I kept it.
     setTimeout(function() {
       $("#search-input").focus();
-      $("#search").css({"opacity": 1, "height": "64px"});
+      $("#search").css("opacity", 1);
     }, 0);
   },
 
@@ -24,9 +24,8 @@ var searchBar = {
     searchBar.isOpen = false;
     $("#open-search-button-icon").css("background-color", "initial").html("search");
     $("#search").css({"opacity": 0, "top": 0, "z-index": -999});
-    setTimeout(function() {
-      $("#search").css("display", "none");
-    }, 250);
+    $("#content").css("margin-top", "-64px");
+    $("#search-input").val("").focusout();
   },
 };
 
