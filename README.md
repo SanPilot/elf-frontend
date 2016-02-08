@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="300" width="300" alt="Elf" src="meta/icons/elf-logo.min.svg" style="margin-bottom: 20px">
+<img height="300" width="300" alt="Elf" src="meta/icons/elf-logo.min.svg" style="margin-bottom: 20px">
 </p>
 # Elf
 ### or, Epic Lab Form
@@ -19,24 +19,26 @@ You can find a project abstract at `meta/Lab Request Application - Project Abstr
 ## Dependencies
 This package requires:
 
-* npm (from Node.js)
-  * Gulp
-      * gulp-util
-      * gulp-real-favicon
-* Bower
-  * JQuery
-  * material-design-lite
-  * material-design-themes
-  * polymer
-    * webcomponentsjs
+* `npm (from Node.js)`
+* `Bower`
+* `Apache webserver (or another server)`
 
 If you have `npm` installed, you can install all `npm` dependencies with the command:
 
-    sudo npm install
+sudo npm install
 
 If you have `bower` installed, you can install all `bower` dependencies with the command:
 
-    bower install
+bower install
+
+## Usage
+Files in this repository are meant to be served through a web server.
+
+`Apache` is recommended, since configuration files are in `Apache` format, but any server should do.
+
+If `gulp` is installed, you should build the repository (see "Building"), and serve content from the `dist` directory.
+
+Otherwise, serve from the `src` directory.
 
 ## Source code
 The project source is located in `src`.
@@ -47,25 +49,26 @@ All files are written vanilla HTML, CSS, JavaScript or are images (or fonts).
   * `images` - Contains images
   * `stylesheets` - Contains CSS stylesheets
 * `components` - Contains Bower packages
-  * `jquery` - The JQuery library
-  * `material-design-lite` - Google's Material Design Lite library
-  * `material-design-themes` - Themes for Material Design Lite
-  * `polymer` - The Polymer Project library
-  * `webcomponentsjs` - Polymer dependency; contains polyfill for web component functionality
 * `pages` - Contains source code for webpages
   * `dashboard` - Source for dashboard page
   * `sign-in` - Source for sign-in page
 * `scripts` - Contains JavaScript files
 
 ## Building
+Build this repository using the following command:
+
+    gulp
+
+The build process will output the new files to the `dist` directory. Point your web server there.
+
 The project can be used straight from the `src` directory, but it is recommended to build it for production uses.
 
-This repository uses `gulpjs` for build automation, but does not currently have a build process.
-
-For now, run it through the `src` directory.
+This repository uses `gulpjs` for build automation. Build tasks can be found in the `gulpfile.js` file.
 
 ## Further Reading
 * Project Icons - `meta/icons`
 * Project Abstract - `meta/Lab Request Application - Project Abstract.pdf`
 * Stack Diagram - `meta/Lab Request Stack Diagram.pdf`
 * Site Mockups - `meta/Site Mockups.pdf`
+
+*Last updated 06.02.2016*
