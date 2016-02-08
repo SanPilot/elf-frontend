@@ -1,50 +1,64 @@
 // Scripts for dashboard page
 
-// Search bar stuff
-// Object for search bar related functions for opening/closing search bar
-var searchBar = {
+// Object for containing dialog objects
+var dialogs = {
 
-  // Is the search bar open?
-  isOpen: false,
+  // Object for controlling search bar
+  searchBar: {
 
-  // Functions for opening/closing search bar
-  open: function() {
-    searchBar.isOpen = true;
-    $("#open-search-button-icon").css("background-color", "rgba(255, 255, 255, 0.4)").html("close");
-    $("#content").css("margin-top", "0");
+    // Is the search bar open?
+    isOpen: false,
 
-    // ¯\_(ツ)_/¯ This setTimeout fixed problems, so I kept it.
-    setTimeout(function() {
-      $("#search-input").focus();
-      $("#search").css("opacity", 1);
-    }, 0);
+    // Functions for opening/closing search bar
+    open: function() {
+      this.isOpen = true;
+      $("#open-search-button-icon").css("background-color", "rgba(255, 255, 255, 0.4)").html("close");
+      $("#content").css("margin-top", "0");
+      $("#open-search-button-tooltip").html("Close Search...");
+
+      // ¯\_(ツ)_/¯ This setTimeout fixed problems, so I kept it.
+      setTimeout(function() {
+        $("#search-input").focus();
+        $("#search").css("opacity", 1);
+      }, 0);
+    },
+
+    close: function() {
+      this.isOpen = false;
+      $("#open-search-button-icon").css("background-color", "initial").html("search");
+      $("#search").css({"opacity": 0, "top": 0, "z-index": -999});
+      $("#content").css("margin-top", "-64px");
+      $("#open-search-button-tooltip").html("Search...");
+      $("#search-input").val("").focusout();
+    },
   },
 
-  close: function() {
-    searchBar.isOpen = false;
-    $("#open-search-button-icon").css("background-color", "initial").html("search");
-    $("#search").css({"opacity": 0, "top": 0, "z-index": -999});
-    $("#content").css("margin-top", "-64px");
-    $("#search-input").val("").focusout();
-  },
+  // Object for controlling account info body
+  accountInfoBody: {
+
+    // Is the account body open?
+    isOpen: false
+  }
 };
+
+// Search bar stuff
 
 // Implement search bar open/close functions
 $("#open-search-button-icon").on("mousedown", function() {
-  if(!searchBar.isOpen) {
-    searchBar.open();
+  if(!dialogs.searchBar.isOpen) {
+    dialogs.searchBar.open();
   } else {
-    searchBar.close();
+    dialogs.searchBar.close();
   }
 });
 
 // Change background-color of open search bar button on hover
 $("#open-search-button-icon").hover(function() {
-  if(!searchBar.isOpen) {
+  if(!dialogs.searchBar.isOpen) {
     $("#open-search-button-icon").css("background-color", "rgba(255, 255, 255, 0.2)");
   }
 }, function() {
-  if(!searchBar.isOpen) {
+  if(!dialogs.searchBar.isOpen) {
     $("#open-search-button-icon").css("background-color", "initial");
   }
 });
@@ -60,3 +74,10 @@ $("#search").on("mousedown", function(e) {
     e.preventDefault();
   }
 });
+
+// Close all open dialogs
+var closeAll = function() {
+  for(var dialog in dialogs) {
+    dialog.close();
+  }
+};

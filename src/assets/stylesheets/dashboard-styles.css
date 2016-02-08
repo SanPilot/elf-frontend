@@ -9,53 +9,33 @@ body {
 /* Override MDL's hide header for mobile behavior */
 .header {
   display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Override default left padding of 60px for hamburger menu icon */
 .header-row {
-  padding: 0 0 0 40px;
+  padding: 0 40px;
 }
 
-/* Styles for account info section */
-.account-info-container {
-  display: flex;
-  align-items: center;
+/* Styles for right section of header */
+.header-right {
   margin-left: auto;
 }
 
-.account-info-names-container {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
+.header-right > div:first-child {
+  float: left;
 }
 
-.account-info-name {
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: bold;
-}
-
-.account-info-name-secondary {
-  font-style: italic;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-}
-
-.account-info-image {
-  border-radius: 25px;
-  margin-left: 12px;
-}
-
-.account-info-more-arrow {
-  font-size: 20px;
-  margin-left: 12px;
+.header-right > div {
+  padding-left: 40px;
 }
 
 /* Styles for the open search bar button */
 .open-search-button-container {
   display: flex;
   align-items: center;
-  float: right;
   height: 64px;
-  margin: 0 30px;
 }
 
 .open-search-button-icon {
@@ -68,6 +48,96 @@ body {
 
 .open-search-button-icon:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Styles for account info section */
+.account-container {
+  height: 64px;
+  display: flex;
+}
+
+.account-info-container {
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+
+.account-info-name {
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.account-info-name-secondary {
+  font-style: italic;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+
+.account-info-image {
+  border-radius: 50%;
+  margin-left: 12px;
+}
+
+.account-info-more-arrow {
+  font-size: 20px;
+  margin-left: 12px;
+}
+
+.account-info-body {
+  position: absolute;
+  right: 40px;
+  top: 76px;
+  width: 330px;
+  min-height: initial;
+  opacity: 0;
+  display: none;
+  top: -200px;
+}
+
+.account-info-body-main {
+  padding: 12px;
+  display: flex;
+}
+
+.account-info-body-image {
+  border-radius: 50%;
+  background-color: grey;
+}
+
+.account-info-body-main-right {
+  display: flex;
+  align-items: center;
+}
+
+.account-info-body-title-container {
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  margin: 0 0 0 12px;
+}
+
+.account-info-body-title {
+  display: block;
+}
+
+.account-info-body-title {
+  margin-bottom: 3px;
+}
+
+.account-info-body-title:last-child {
+  margin-bottom: 0;
+}
+
+.account-info-body-title-primary {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.account-info-body-title-secondary {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.account-info-body-title-container {
+  font-size: 15px;
 }
 
 /* Searchbar styles */
@@ -122,7 +192,64 @@ body {
   width: 75%;
 }
 
-/* Styles for View dropdown menu */
+/* Styles for view dropdown menu */
 .view-dropdown {
   width: 120px;
+}
+
+/* Styles for tasks */
+.tasks {
+  margin-top: 24px;
+}
+
+.tasks-body {
+  cursor: pointer;
+}
+
+.tasks-row {
+  display: flex;
+  background-color: #fff;
+  padding: 14px 24px;
+}
+
+.tasks-item {
+  flex: 1;
+  font-family: "Helvetica","Arial",sans-serif;
+  font-size: 14px;
+}
+
+.tasks-header-row {
+  display: flex;
+  background-color: initial;
+  padding: 9px 24px;
+  margin-bottom: 5px;
+}
+
+.tasks-header-item {
+  font-size: 12px;
+  font-weight: 700;
+  color: #858585;
+}
+
+.tasks-body-item {
+  font-family: "Open Sans","Helvetica","Arial",sans-serif;
+  color: #343434;
+}
+
+.tasks-item-id {
+  flex: 0.5;
+}
+
+.tasks-body-item-id {
+  color: #555555;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.tasks-item-name {
+  flex: 2;
+}
+
+.tasks-body-item-name {
+  color: #000000;
 }
