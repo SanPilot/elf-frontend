@@ -10,12 +10,18 @@ Allow from all
 ErrorDocument 404 /pages/error/404.html
 
 # X-Frame-Options header (security)
+<IfModule mod_header>
 Header always append X-Frame-Options SAMEORIGIN
+</IfModule>
 
 # Deflate output
+<IfModule mod_deflate>
 SetOutputFilter DEFLATE
 SetEnvIfNoCase Request_URI "\.(?:gif|jpe?g|png)$" no-gzip
+</IfModule>
 
 # Caching
+<IfModule mod_expires>
 ExpiresActive On
 ExpiresDefault "access plus 1 day"
+</IfModule>

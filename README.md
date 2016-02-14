@@ -65,10 +65,19 @@ The project can be used straight from the `src` directory, but it is recommended
 
 This repository uses `gulpjs` for build automation. Build tasks can be found in the `gulpfile.js` file.
 
+## Notes
+* Apache will return a 403 Forbidden error code if you do not include a `AllowOverride All` directive in the configuration file (not .htaccess) file:
+
+  `<Directory />
+    AllowOverride All
+  </Directory>`
+
+  If you don't have access to the configuration file, comment out the whole section labelled "Generic options" in the file `src/.htaccess`
+
 ## Further Reading
 * Project Icons - `meta/icons`
 * Project Abstract - `meta/Lab Request Application - Project Abstract.pdf`
 * Stack Diagram - `meta/Lab Request Stack Diagram.pdf`
 * Site Mockups - `meta/Site Mockups.pdf`
 
-*Last updated 06.02.2016*
+*Last updated 14.02.2016*
