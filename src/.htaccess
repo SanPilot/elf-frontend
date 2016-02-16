@@ -10,18 +10,28 @@ Allow from all
 ErrorDocument 404 /pages/error/404.html
 
 # X-Frame-Options header (security)
-<IfModule mod_header>
+<IfModule headers_module>
 Header always append X-Frame-Options SAMEORIGIN
 </IfModule>
 
 # Deflate output
-<IfModule mod_deflate>
+<IfModule deflate_module>
 SetOutputFilter DEFLATE
 SetEnvIfNoCase Request_URI "\.(?:gif|jpe?g|png)$" no-gzip
 </IfModule>
 
 # Caching
-<IfModule mod_expires>
+<IfModule expires_module>
 ExpiresActive On
 ExpiresDefault "access plus 1 day"
+</IfModule>
+
+# Re-mapped URLs for Polymer
+<IfModule rewrite_module>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}components%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}components%{REQUEST_URI} -d
+RewriteRule ^(.*)$ /components/$1 [L]
 </IfModule>

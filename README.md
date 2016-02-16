@@ -40,7 +40,7 @@ If `gulp` is installed, you should build the repository (see "Building"), and se
 
 Otherwise, serve from the `src` directory.
 
-## Source code
+## Source Code
 The project source is located in `src`.
 All files are written vanilla HTML, CSS, JavaScript or are images (or fonts).
 
@@ -65,12 +65,22 @@ The project can be used straight from the `src` directory, but it is recommended
 
 This repository uses `gulpjs` for build automation. Build tasks can be found in the `gulpfile.js` file.
 
-## Notes
+## Apache Configuration
+* It is recommended to enable the following (non-required) Apache modules:
+  * `mod_header`
+  * `mod_deflate`
+  * `mod_expires`
+* `mod_rewrite` is required for Polymer elements to function correctly
+
+  You can enable them with the following command (Mac/Linux only):
+
+        sudo a2enmod header deflate expires rewrite
+
 * Apache will return a 403 Forbidden error code if you do not include a `AllowOverride All` directive in the configuration file (not .htaccess) file:
 
-  `<Directory />
-    AllowOverride All
-  </Directory>`
+        <Directory />
+            AllowOverride All
+        </Directory>
 
   If you don't have access to the configuration file, comment out the whole section labelled "Generic options" in the file `src/.htaccess`
 
