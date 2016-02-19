@@ -9,6 +9,9 @@ var dialogs = {
     // Is the search bar open?
     isOpen: false,
 
+    // Disallow automatic closing
+    autoClose: false,
+
     // Functions for opening/closing search bar
     open: function() {
       this.isOpen = true;
@@ -37,7 +40,33 @@ var dialogs = {
   accountInfoBody: {
 
     // Is the account body open?
-    isOpen: false
+    isOpen: false,
+
+    // Allow automatic closing
+    autoClose: true,
+
+    // Functions for opening/closing account info body
+    open: function() {
+      this.isOpen = true;
+      $("#account-info-container").css("background-color", "rgba(255, 255, 255, 0.3)");
+      $("#account-info-more-arrow").html("keyboard_arrow_up");
+      $("#account-info-body").css("display", "block");
+
+      // ¯\_(ツ)_/¯ This setTimeout fixed problems, so I kept it.
+      setTimeout(function() {
+        $("#account-info-body").css({"opacity": "1", "top": "76px"});
+      }, 0)
+    },
+
+    close: function() {
+      this.isOpen = false;
+      $("#account-info-container").css("background-color", "initial");
+      $("#account-info-more-arrow").html("keyboard_arrow_down");
+      $("#account-info-body").css({"opacity": "0", "top": "64px"});
+      setTimeout(function() {
+        $("#account-info-body").css("display", "none");
+      }, 200)
+    }
   }
 };
 
@@ -75,9 +104,36 @@ $("#search").on("mousedown", function(e) {
   }
 });
 
+// Account Info Body Stuff
+$("#account-info-container").on("click", function(event) {
+  event.stopPropagation();
+  if(!dialogs.accountInfoBody.isOpen) {
+    dialogs.accountInfoBody.open();
+  } else {
+    dialogs.accountInfoBody.close();
+  }
+});
+
+// Change background-color of account info container on hover
+$("#account-info-container").hover(function() {
+  if(!dialogs.accountInfoBody.isOpen) {
+    $("#account-info-container").css("background-color", "rgba(255, 255, 255, 0.2)");
+  }
+}, function() {
+  if(!dialogs.accountInfoBody.isOpen) {
+    $("#account-info-container").css("background-color", "initial");
+  }
+});
+
 // Close all open dialogs
 var closeAll = function() {
   for(var dialog in dialogs) {
-    dialog.close();
+    var selectedDialoge = dialogs[dialog];
+    if(selectedDialoge.autoClose) {
+      selectedDialoge.close();
+    }
   }
 };
+
+// Run closeAll when body is clicked
+$("html").click(closeAll);

@@ -40,7 +40,6 @@ body {
 
 .open-search-button-icon {
   user-select: none;
-  -webkit-user-select: none;
   border-radius: 50%;
   padding: 10px;
   transition: background-color 0.1s;
@@ -52,14 +51,18 @@ body {
 
 /* Styles for account info section */
 .account-container {
+  user-select: none;
   height: 64px;
   display: flex;
+  cursor: pointer;
 }
 
 .account-info-container {
   display: flex;
   align-items: center;
   text-align: right;
+  padding: 0 12px;
+  transition: background-color 0.1s;
 }
 
 .account-info-name {
@@ -86,12 +89,12 @@ body {
 .account-info-body {
   position: absolute;
   right: 40px;
-  top: 76px;
   width: 330px;
   min-height: initial;
   opacity: 0;
   display: none;
-  top: -200px;
+  top: 64px;
+  transition: opacity 0.2s, top 0.2s;
 }
 
 .account-info-body-main {
