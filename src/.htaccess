@@ -8,6 +8,7 @@ Allow from all
 
 # Error page
 ErrorDocument 404 /pages/error/404.html
+ErrorDocument 403 /pages/error/404.html
 
 # X-Frame-Options header (security)
 <IfModule headers_module>
