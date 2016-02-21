@@ -105,12 +105,20 @@ $("#search").on("mousedown", function(e) {
 });
 
 // Account Info Body Stuff
+
+// Prevent clicking on Account Info from closing Account Info Body
 $("#account-info-container").on("click", function(event) {
   event.stopPropagation();
   if(!dialogs.accountInfoBody.isOpen) {
     dialogs.accountInfoBody.open();
   } else {
     dialogs.accountInfoBody.close();
+  }
+});
+
+$("#account-info-body").on("click", function(event) {
+  if(dialogs.accountInfoBody.isOpen) {
+    event.stopPropagation();
   }
 });
 
