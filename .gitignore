@@ -3,4 +3,3 @@ src/components
 faviconData.json
 dist
 create-backup.sh
-.jshintrc
