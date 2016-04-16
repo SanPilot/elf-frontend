@@ -112,51 +112,56 @@ gulp.task('copy', ['clean'], function() {
 // You should run it at least once to create the icons. Then,
 // you should run it whenever RealFaviconGenerator updates its
 // package (see the check-for-favicon-update task below).
-gulp.task('generate-favicon', ['clean'], function(done) {
-  realFavicon.generateFavicon({
-    masterPicture: 'meta/icons/elf-logo.icon.png',
+gulp.task('generate-favicon', function(done) {
+	realFavicon.generateFavicon({
+    masterPicture: 'meta/icons/elflogo2.icon.png',
     dest: 'dist',
-    iconsPath: '/',
-    design: {
-      ios: {
-        pictureAspect: 'backgroundAndMargin',
-        backgroundColor: '#ffffff',
-        margin: '14%'
-      },
-      desktopBrowser: {},
-      windows: {
-        pictureAspect: 'noChange',
-        backgroundColor: '#f44336',
-        onConflict: 'override'
-      },
-      androidChrome: {
-        pictureAspect: 'noChange',
-        themeColor: '#3f51b5',
-        manifest: {
-          name: 'Elf',
-          display: 'browser',
-          orientation: 'notSet',
-          onConflict: 'override'
-        }
-      },
-      safariPinnedTab: {
-        masterPicture: {
-          type: 'inline',
-          content: 'meta/icons/elf-logo.safari.icon.svg'
-        },
-        pictureAspect: 'silhouette',
-        themeColor: '#008900'
-      }
-    },
-    settings: {
-      compression: 5,
-      scalingAlgorithm: 'Lanczos',
-      errorOnImageTooSmall: false
-    },
-    markupFile: FAVICON_DATA_FILE
-  }, function() {
-    done();
-  })
+		iconsPath: '/',
+		design: {
+			ios: {
+				pictureAspect: 'backgroundAndMargin',
+				backgroundColor: '#ffffff',
+				margin: '14%',
+				appName: 'Elf'
+			},
+			desktopBrowser: {},
+			windows: {
+				pictureAspect: 'noChange',
+				backgroundColor: '#da532c',
+				onConflict: 'override',
+				appName: 'Elf'
+			},
+			androidChrome: {
+				pictureAspect: 'backgroundAndMargin',
+				margin: '17%',
+				backgroundColor: '#ffffff',
+				themeColor: '#f44336',
+				manifest: {
+					name: 'Elf',
+					display: 'browser',
+					orientation: 'notSet',
+					onConflict: 'override',
+					declared: true
+				}
+			},
+			safariPinnedTab: {
+				masterPicture: {
+					type: 'inline',
+					content: 'meta/icons/elflogo2.white.svg'
+				},
+				pictureAspect: 'silhouette',
+				themeColor: '#f44336'
+			}
+		},
+		settings: {
+			compression: 5,
+			scalingAlgorithm: 'Mitchell',
+			errorOnImageTooSmall: false
+		},
+		markupFile: FAVICON_DATA_FILE
+	}, function() {
+		done();
+	});
 });
 
 // Inject the favicon markups in your HTML pages. You should run
