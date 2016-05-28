@@ -12,25 +12,38 @@
   <link rel="stylesheet" href="/components/roboto-fontface/css/roboto-fontface.css">
 </head>
 <body>
-  <div class="signin-container">
-    <!-- Sign In Dialoge -->
-    <div class="signin-box mdl-card mdl-shadow--2dp">
-      <img src="/assets/images/icons/elflogo2.svg" height="150" width="150" class="elf-logo" alt="Elf">
-      <div class="mdl-card__supporting-text signin-text">
-        PLEASE SIGN IN TO CONTINUE
+  <div class="flex-container">
+    <!-- Landing section -->
+    <div class="landing-container">
+      <div class="landing">
+        <div class="landing-header">
+          Work together better.
+        </div>
+        <div class="landing-body">
+            Elf is a lab-request form that's fast, ergonomic, and fun to use.
+        </div>
       </div>
-      <div class="mdl-textfield mdl-js-textfield signin-input">
-        <input class="mdl-textfield__input" type="text" id="signin-username">
-        <label class="mdl-textfield__label" for="signin-username">Username</label>
+    </div>
+    <div class="signin-container">
+      <!-- Sign In Dialoge -->
+      <div class="signin-box mdl-card mdl-shadow--2dp">
+        <img src="/assets/images/icons/elflogo2.svg" height="150" width="150" class="elf-logo" alt="Elf">
+        <div class="mdl-card__supporting-text signin-text">
+          PLEASE SIGN IN TO CONTINUE
+        </div>
+        <div class="mdl-textfield mdl-js-textfield signin-input">
+          <input class="mdl-textfield__input" type="text" id="signin-username">
+          <label class="mdl-textfield__label" for="signin-username">Username</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield signin-input-container signin-password">
+          <input class="mdl-textfield__input" type="password" id="signin-password">
+          <label class="mdl-textfield__label" for="signin-password">Password</label>
+        </div>
+        <div class="signin-message"></div>
+        <button class="mdl-button mdl-button--raised mdl-js-button mdl-button--colored mdl-js-ripple-effect signin-button">
+          SIGN IN <i class="material-icons">keyboard_arrow_right</i>
+        </button>
       </div>
-      <div class="mdl-textfield mdl-js-textfield signin-input-container signin-password">
-        <input class="mdl-textfield__input" type="password" id="signin-password">
-        <label class="mdl-textfield__label" for="signin-password">Password</label>
-      </div>
-      <div class="signin-message"></div>
-      <button class="mdl-button mdl-button--raised mdl-js-button mdl-button--colored mdl-js-ripple-effect signin-button">
-        SIGN IN <i class="material-icons">keyboard_arrow_right</i>
-      </button>
     </div>
   </div>
   <div class="feedback-button mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect">

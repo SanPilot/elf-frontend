@@ -3,16 +3,44 @@
 body, html {
   height: 100%;
   width: 100%;
+  background-color: #f44336;
+}
+
+.flex-container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-container {
+  height: 100%;
+}
+
+.landing {
+  margin: 150px 0 0 150px;
+  color: #ffffff;
+  padding-right: 150px;
+}
+
+.landing-header {
+  font-size: 70px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  line-height: 100%;
+  font-weight: bold;
+  height: 100%;
+}
+
+.landing-body {
+  font-size: 30px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  line-height: 150%;
 }
 
 /* Contains signin-dialouge */
 .signin-container {
-  height: 100%;
-  /* Display as flexbox for vertical and horizontal centering */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  margin: 0 150px 0 auto;
 }
 
 .signin-box {
