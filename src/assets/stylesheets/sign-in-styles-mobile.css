@@ -1,0 +1,29 @@
+/* This document contains the styles for the mobile Sign In Page */
+body, html {
+  width: auto;
+  height: auto;
+}
+.flex-container {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.landing-container {
+  width: 100%;
+}
+
+.landing {
+  margin: 10%;
+  padding-right: 0;
+}
+
+.signin-container {
+  width: 100%;
+}
+
+.signin-box {
+  margin: auto;
+  margin-bottom: 20%;
+}
