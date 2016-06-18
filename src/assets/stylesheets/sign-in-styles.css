@@ -10,16 +10,17 @@ body, html {
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
 }
 
 .landing-container {
   height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .landing {
-  margin: 150px 0 0 150px;
+  margin: 0 1% 10% 15%;
   color: #ffffff;
   padding-right: 150px;
 }
