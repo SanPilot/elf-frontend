@@ -12,7 +12,7 @@ This repository contains the frontend for Elf.
 
 It requires a corresponding backend to function properly.
 
-Elf is a web-based application for submitting, viewing and proccessing lab requests.
+Elf is a web-based application for submitting, viewing and processing lab requests.
 
 You can find a project abstract at `meta/Lab Request Application - Project Abstract.pdf`.
 
