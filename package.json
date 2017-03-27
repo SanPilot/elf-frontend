@@ -4,7 +4,7 @@
   "description": "Frontend interface for Elf",
   "repository": {
     "type": "git",
-    "url": "https://git.sanpilot.co/SanPilot/elf-backend.git"
+    "url": "https://git.sanpilot.co/SanPilot/elf-frontend.git"
   },
   "main": "index.js",
   "dependencies": {
