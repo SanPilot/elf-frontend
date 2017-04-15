@@ -1,5 +1,5 @@
 {
-  "esversion"     : 6,
+  "esversion"     : 5,
   "passfail"      : false,
   "maxerr"        : 100,
 
@@ -32,7 +32,7 @@
   "expr"          : false,
   "forin"         : false,
   "immed"         : true,
-  "latedef"       : true,
+  "latedef"       : false,
   "loopfunc"      : false,
   "noarg"         : true,
   "regexp"        : true,
