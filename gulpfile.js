@@ -20,7 +20,7 @@ var del = require('del');
 var autoprefixer = require('gulp-autoprefixer');
 var csso = require('gulp-csso');
 var minifyInline = require('gulp-minify-inline');
-var sourcemaps = require('gulp-sourcemaps');
+var htmlreplace = require('gulp-html-replace');
 
 // Bases
 var bases = {
@@ -52,6 +52,9 @@ var htmlProcess = function(files) {
   for (var i = 0; i < files.length; i++) {
     gulp.src(files[i][0])
     .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
+    .pipe(htmlreplace({
+      'js': 'scripts/app.min.js'
+    }))
     .pipe(minifyInline())
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(files[i][1]));
@@ -66,10 +69,8 @@ gulp.task('clean', function() {
 // Process styles
 gulp.task('styles', ['clean'], function() {
   return gulp.src(paths.styles)
-  .pipe(sourcemaps.init())
   .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
   .pipe(csso())
-  .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(bases.dist + "assets/stylesheets/"));
 });
 
@@ -78,10 +79,8 @@ gulp.task('scripts', ['clean'], function() {
   gulp.src(paths.scripts)
   .pipe(jshint())
   .pipe(jshint.reporter('default'))
-  .pipe(sourcemaps.init())
   .pipe(uglify())
   .pipe(concat('app.min.js'))
-  .pipe(sourcemaps.write())
   .pipe(gulp.dest(bases.dist + 'scripts/'));
 });
 
