@@ -68,13 +68,11 @@ This repository uses `gulpjs` for build automation. Build tasks can be found in 
 ## Apache Configuration
 * It is recommended to enable the following (non-required) Apache modules:
   * `mod_header`
-  * `mod_deflate`
   * `mod_expires`
-* `mod_rewrite` is required for Polymer elements to function correctly
 
   You can enable them with the following command (Mac/Linux only):
 
-        sudo a2enmod header deflate expires rewrite
+        sudo a2enmod header expires
 
 * Apache will return a 403 Forbidden error code if you do not include a `AllowOverride All` directive in the configuration file (not .htaccess) file:
 
@@ -82,7 +80,7 @@ This repository uses `gulpjs` for build automation. Build tasks can be found in 
             AllowOverride All
         </Directory>
 
-  If you don't have access to the configuration file, comment out the whole section labelled "Generic options" in the file `src/.htaccess`
+  If you don't have access to the configuration file, comment out the whole section labeled "Generic options" in the file `src/.htaccess`
 
 ## Further Reading
 * Project Icons - `meta/icons`
@@ -90,4 +88,4 @@ This repository uses `gulpjs` for build automation. Build tasks can be found in 
 * Stack Diagram - `meta/Lab Request Stack Diagram.pdf`
 * Site Mockups - `meta/Site Mockups.pdf`
 
-*Last updated 14.02.2016*
+*Last updated 04.01.2016*
