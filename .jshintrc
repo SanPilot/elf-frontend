@@ -1,5 +1,5 @@
 {
-  "esversion"     : 5,
+  "esversion"     : 6,
   "passfail"      : false,
   "maxerr"        : 100,
 
@@ -9,13 +9,14 @@
   "rhino"         : false,
   "couch"         : false,
 
-  "jquery"        : true,
+  "jquery"        : false,
   "prototypejs"   : false,
   "mootools"      : false,
   "dojo"          : false,
 
   "predef"        : [
-    "require"
+    "config",
+    "createToast"
   ],
 
   "debug"         : true,
@@ -25,7 +26,7 @@
   "laxbreak"      : true,
   "bitwise"       : true,
   "boss"          : false,
-  "curly"         : true,
+  "curly"         : false,
   "eqeqeq"        : true,
   "eqnull"        : false,
   "evil"          : false,
