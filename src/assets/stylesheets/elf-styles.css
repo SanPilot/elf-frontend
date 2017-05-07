@@ -1,0 +1,232 @@
+/* Styles that apply to all Elf pages */
+
+body {
+  background: #ededed;
+  color: #586471;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  line-height: 150%;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 0;
+  width: 100%;
+}
+
+button {
+  background: #f04d42;
+  border: 1px solid #f04d42;
+  border-radius: 0.15em;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: bold;
+  padding: 0.6em 1.4em;
+  transition: background 0.2s, color 0.2s;
+  user-select: none;
+}
+
+button:active {
+  background: #812620;
+}
+
+button.secondary {
+  background: none;
+  border: 1px solid #f04d42;
+  color: #f04d42;
+}
+
+button.secondary:active {
+  background: #812620;
+  color: #fff;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0.1em 0.1em 0.07em rgba(0, 0, 0, 0.07);
+  margin: 1em auto 0 auto;
+  padding: 1em;
+}
+
+.card-accent {
+  background-color: #f44336;
+  color: #f1f1f1;
+}
+
+.card-accent > .section-header {
+  color: #fff;
+}
+
+.center {
+  max-width: 40em;
+}
+
+.collapse-button {
+  color: #8a8a8a;
+  font-size: 0.7em;
+  font-weight: initial;
+  vertical-align: top;
+}
+
+.collapsible {
+  border-bottom: 1px solid #aaaaaa;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  transition: margin 0.2s;
+  user-select: none;
+}
+
+.collapsible-body {
+  transition: opacity 0.2s;
+}
+
+.divider {
+  margin-top: 2em;
+}
+
+footer {
+  background: #586471;
+  color: #c2c2c2;
+  display: flex;
+  flex-direction: row;
+  margin: 5em auto 0 auto;
+  padding: 1em 2em 3em 2em;
+  width: 51em;
+}
+
+footer > div {
+  margin: 0 2em;
+}
+
+.footer-header {
+  color: #fff;
+}
+
+.footer-logo-section {
+  opacity: 0.5;
+}
+
+.footer-navigation-section > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input[type="text"] {
+  background: rgba(255, 255, 255, 0.45);
+  border: none;
+  border-radius: 0.15em;
+  color: #303942;
+  font-size: 0.9em;
+  outline: none;
+  margin-bottom: 0.5em;
+  padding: 0.8em;
+  transition: background 0.1s, color 0.1s;
+  width: 20em;
+}
+
+input[type="text"].field-bold {
+  font-weight: bold;
+}
+
+input[type="text"].field-clear {
+  background: none;
+  padding: 0;
+}
+
+input[type="text"].field-clear.field-bold::placeholder {
+  font-weight: bold;
+}
+
+input[type="text"]:focus {
+  background: #fff;
+}
+
+input[type="text"].field-clear:focus {
+  background: none;
+}
+
+input[type="text"]::placeholder {
+  font-weight: normal;
+}
+
+.header-background {
+  background: #f44336;
+  box-shadow: 0 .1em .2em rgba(0, 0, 0, 0.2);
+  height: 15em;
+  min-width: 100vw;
+  position: absolute;
+  z-index: -100;
+}
+
+.logo {
+  margin: 2em 0 1em 0;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  margin: auto;
+  justify-content: center;
+}
+
+main > div > .card:first-child {
+  margin-top: 0;
+}
+
+.no-transition {
+  transition: none;
+}
+
+.section-divider {
+  margin: 0.5em 0;
+}
+
+.section-divider:last-child {
+  margin-bottom: 0;
+}
+
+.section-header {
+  color: #303942;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.sidebar {
+  margin-right: 2em;
+  max-width: 13em;
+}
+
+.subtext {
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.toast {
+  background: #181818;
+  color: #f1f1f1;
+  display: flex;
+  flex-direction: row;
+  left: 1em;
+  margin: 0;
+  padding: 1em;
+  position: fixed;
+  transition: bottom 0.2s, opacity 0.2s;
+}
+
+.toast > .actions {
+  color: #467aff;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 0.1em;
+  text-align: right;
+}
+
+.toast > .actions > .action {
+  margin-left: 1em;
+}
