@@ -11,7 +11,6 @@ var fs = require('fs');
 
 // Include Plugins
 var jshint = require('gulp-jshint');
-var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
@@ -20,7 +19,6 @@ var del = require('del');
 var autoprefixer = require('gulp-autoprefixer');
 var csso = require('gulp-csso');
 var minifyInline = require('gulp-minify-inline');
-var htmlreplace = require('gulp-html-replace');
 
 // Bases
 var bases = {
@@ -52,9 +50,6 @@ var htmlProcess = function(files) {
   for (var i = 0; i < files.length; i++) {
     gulp.src(files[i][0])
     .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
-    .pipe(htmlreplace({
-      'js': 'scripts/app.min.js'
-    }))
     .pipe(minifyInline())
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(files[i][1]));
@@ -74,13 +69,12 @@ gulp.task('styles', ['clean'], function() {
   .pipe(gulp.dest(bases.dist + "assets/stylesheets/"));
 });
 
-// Process scripts and concatenate them into one output file
+// Process scripts
 gulp.task('scripts', ['clean'], function() {
   gulp.src(paths.scripts)
   .pipe(jshint())
   .pipe(jshint.reporter('default'))
   .pipe(uglify())
-  .pipe(concat('app.min.js'))
   .pipe(gulp.dest(bases.dist + 'scripts/'));
 });
 
