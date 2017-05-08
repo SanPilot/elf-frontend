@@ -229,4 +229,5 @@ main > div > .card:first-child {
 
 .toast > .actions > .action {
   margin-left: 1em;
+  user-select: none;
 }

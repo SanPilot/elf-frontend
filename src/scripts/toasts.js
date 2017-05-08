@@ -5,6 +5,19 @@ Create toast notifications
 var createToast = function(message, actions) {
 
   // Create the toast element
+  var toast = document.createElement("div");
+  toast.innerHTML = "<div>" + message + "</div>";
+  toast.classList.add("toast");
+  toast.classList.add("card");
+  var removeToast = function() {
+    toast.style.opacity = 0;
+    toast.style.bottom = (document.getElementsByClassName("toast").length * 4 - 2.5) + "em";
+    setTimeout(function() {
+      toast.parentNode.removeChild(toast);
+    }, 200);
+  }
+
+  // Add the actions to the toast
   var actionList = document.createElement("div");
   actionList.classList.add("actions");
   var numberOfActions = 0;
@@ -12,15 +25,13 @@ var createToast = function(message, actions) {
     numberOfActions++;
     var appendAction = document.createElement("span");
     appendAction.innerHTML = action;
-    appendAction.onclick = actions[action];
+    appendAction.onclick = function() {
+      actions[action](removeToast);
+    };
     appendAction.classList.add("action");
     actionList.appendChild(appendAction);
   }
-  var toast = document.createElement("div");
-  toast.innerHTML = "<div>" + message + "</div>";
   if(numberOfActions > 0) toast.appendChild(actionList);
-  toast.classList.add("toast");
-  toast.classList.add("card");
 
   // Move other toasts
   var moveToasts = document.getElementsByClassName("toast");
@@ -39,11 +50,5 @@ var createToast = function(message, actions) {
   toast.style.bottom = "1em";
 
   // Remove the toast after 20 seconds
-  setTimeout(function() {
-    toast.style.opacity = 0;
-    toast.style.bottom = (document.getElementsByClassName("toast").length * 4 - 2.5) + "em";
-    setTimeout(function() {
-      toast.parentNode.removeChild(toast);
-    }, 200);
-  }, 20000);
+  setTimeout(removeToast, 20000);
 };

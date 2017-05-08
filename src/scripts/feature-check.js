@@ -3,7 +3,7 @@ Ensure the client supports all functionality
 */
 
 // Run only if the feature check is enabled in config
-if(config.featureCheck) {
+if(config.featureCheck && localStorage.getItem("dismissFeatureCheck") !== "true") {
 
   if(config.debug) console.log("Running feature check...");
 
@@ -11,7 +11,8 @@ if(config.featureCheck) {
     "WebSockets": window.WebSocket,
     "Dedicated WebWorkers": window.Worker,
     "Shared WebWorkers": window.SharedWorker,
-    "LocalStorage": window.localStorage
+    "LocalStorage": window.localStorage,
+    "DNA": window.DNA
   },
   missing = [],
   checkFailed = false;
@@ -27,8 +28,9 @@ if(config.featureCheck) {
   if(checkFailed) {
     createToast("You may experience issues with Elf.",
     {
-      "Dismiss": function() {
-
+      "Dismiss": function(removeToast) {
+        removeToast();
+        localStorage.setItem("dismissFeatureCheck", "true");
       }
     });
     if(config.debug) console.error("Feature check failed. The following were not detected: " + missing.join(", "));
