@@ -11,8 +11,7 @@ if(config.featureCheck && localStorage.getItem("dismissFeatureCheck") !== "true"
     "WebSockets": window.WebSocket,
     "Dedicated WebWorkers": window.Worker,
     "Shared WebWorkers": window.SharedWorker,
-    "LocalStorage": window.localStorage,
-    "DNA": window.DNA
+    "LocalStorage": window.localStorage
   },
   missing = [],
   checkFailed = false;
