@@ -1,0 +1,42 @@
+/* Styles for new sign in page */
+
+.left-section {
+  align-items: center;
+  display: flex;
+  margin-right: 10em;
+}
+
+.landing-text {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  line-height: 1.5;
+}
+
+.landing-text-header {
+  font-size: 4em;
+}
+
+.landing-text-body {
+  font-size: 2em;
+  opacity: 0.8;
+  max-width: 30em;
+}
+
+.left-section > .card {
+  padding: 2em;
+}
+
+.left-section > .card > .section-header {
+  margin: 1em 0 2em;
+}
+
+.left-section > .card > .section-header > .header-secondary {
+  font-weight: normal;
+  font-size: 0.9em;
+}
+
+.signin-button {
+  width: 100%;
+}

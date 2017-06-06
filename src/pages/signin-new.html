@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign In &ndash; Elf</title>
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/elf-styles.css">
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/signin-new-styles.css">
+  <script type="text/javascript" src="/scripts/utility.js"></script>
+  <script type="text/javascript" src="/scripts/auth-redirect.js"></script>
+</head>
+<body>
+
+  <main>
+    <div class="left-section">
+      <div class="card card-accent">
+
+        <img alt="Elf Logo" src="/assets/images/icons/elflogo2.white.svg" width="60">
+
+        <div class="section-header">
+          Sign In<br><span class="header-secondary">to continue to your account</span>
+        </div>
+
+        <div class="section-divider">
+
+          <div class="section-divider"><input type="text" placeholder="Username or Email" id="username"></div>
+
+          <div class="section-divider"><input type="password" placeholder="Password" id="password"></div>
+
+          <div class="section-divider"><button class="white signin-button" id="action-sys" disabled>Sign In</button></div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="landing-text">
+
+      <div class="landing-text-header">
+        Work together better.
+      </div>
+
+      <div class="landing-text-body">
+        Elf is a lab-request form that facilitates collaboration and boosts productivity.
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Libraries -->
+  <script type="text/javascript" src="/scripts/config.js"></script>
+  <script type="text/javascript" src="/scripts/toasts.js"></script>
+  <script type="text/javascript" src="/scripts/feature-check.js"></script>
+  <script type="text/javascript" src="/scripts/api-connection.js"></script>
+  <script type="text/javascript" src="/scripts/signin-engine.js"></script>
+
+</body>
+</html>
