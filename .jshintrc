@@ -9,14 +9,17 @@
   "rhino"         : false,
   "couch"         : false,
 
-  "jquery"        : false,
+  "jquery"        : true,
   "prototypejs"   : false,
   "mootools"      : false,
   "dojo"          : false,
 
   "predef"        : [
     "config",
-    "createToast"
+    "createToast",
+    "onconnect",
+    "utility",
+    "api"
   ],
 
   "debug"         : true,
