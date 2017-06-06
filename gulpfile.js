@@ -32,10 +32,10 @@ var paths = {
   libs: [bases.src + 'components/**/*'],
   styles: [bases.src + 'assets/stylesheets/**/*'],
   html: [
-    [bases.src + 'pages/sign-in/*', bases.dist],
     [bases.src + 'pages/dashboard/*', bases.dist + 'dashboard/'],
     [bases.src + 'pages/error/*', bases.dist + 'pages/error/'],
-    [bases.src + 'pages/boilerplate.html', bases.dist]
+    [bases.src + 'pages/boilerplate.html', bases.dist],
+    [bases.src + 'pages/signin-new.html', bases.dist, "index.html"]
   ],
   images: [bases.src + 'assets/images/**/*'],
   extras: [bases.src + 'robots.txt', bases.src + '.htaccess'],
@@ -47,13 +47,22 @@ var FAVICON_DATA_FILE = 'faviconData.json';
 
 // Function to intelligently process HTML files and put them in their place
 var htmlProcess = function(files) {
+
   for (var i = 0; i < files.length; i++) {
-    gulp.src(files[i][0])
+    var initPipe = gulp.src(files[i][0])
     .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
     .pipe(minifyInline())
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest(files[i][1]));
+    .pipe(htmlmin({collapseWhitespace: true}));
+
+    // Rename the file if the argument is provided
+    if(files[i][2]) initPipe = initPipe.pipe(rename(files[i][2]));
+
+    initPipe.pipe(gulp.dest(files[i][1]));
   }
+
+  // Remove tmp files
+  del(bases.dist + 'tmp/');
+
 };
 
 // Delete the dist directory
