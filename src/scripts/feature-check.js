@@ -10,7 +10,6 @@ if(config.featureCheck && localStorage.getItem("dismissFeatureCheck") !== "true"
   var checkFeatures = {
     "WebSockets": window.WebSocket,
     "Dedicated WebWorkers": window.Worker,
-    "Shared WebWorkers": window.SharedWorker,
     "LocalStorage": window.localStorage
   },
   missing = [],
@@ -27,8 +26,7 @@ if(config.featureCheck && localStorage.getItem("dismissFeatureCheck") !== "true"
   if(checkFailed) {
     createToast("You may experience issues with Elf.",
     {
-      "Dismiss": function(removeToast) {
-        removeToast();
+      "Dismiss": function() {
         localStorage.setItem("dismissFeatureCheck", "true");
       }
     });
