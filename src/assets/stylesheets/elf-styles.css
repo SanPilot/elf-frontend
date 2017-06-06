@@ -24,12 +24,16 @@ button {
   font-size: 0.9em;
   font-weight: bold;
   padding: 0.6em 1.4em;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
   user-select: none;
 }
 
 button:active {
   background: #812620;
+}
+
+button:disabled {
+  opacity: 0.5;
 }
 
 button.secondary {
@@ -41,6 +45,16 @@ button.secondary {
 button.secondary:active {
   background: #812620;
   color: #fff;
+}
+
+button.white {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+button.white:active {
+  background: #812620;
 }
 
 .card {
@@ -113,7 +127,7 @@ footer > div {
   text-decoration: none;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
   background: rgba(255, 255, 255, 0.45);
   border: none;
   border-radius: 0.15em;
@@ -122,32 +136,35 @@ input[type="text"] {
   outline: none;
   margin-bottom: 0.5em;
   padding: 0.8em;
-  transition: background 0.1s, color 0.1s;
   width: 20em;
+  transition: background 0.1s, border 0.1s, color 0.1s;
 }
 
-input[type="text"].field-bold {
+input[type="text"].field-bold, input[type="password"].field-bold {
   font-weight: bold;
 }
 
-input[type="text"].field-clear {
+input[type="text"].field-clear, input[type="password"].field-clear {
   background: none;
-  padding: 0;
+  border-bottom: 0.15em solid #a8a8a8;
+  border-radius: 0;
+  padding: 0.8em 0;
 }
 
-input[type="text"].field-clear.field-bold::placeholder {
+input[type="text"].field-clear.field-bold::placeholder, input[type="password"].field-clear.field-bold::placeholder {
   font-weight: bold;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus, input[type="password"]:focus {
   background: #fff;
 }
 
-input[type="text"].field-clear:focus {
+input[type="text"].field-clear:focus, input[type="password"].field-clear:focus {
   background: none;
+  border-bottom: 0.15em solid #dd1a1a;
 }
 
-input[type="text"]::placeholder {
+input[type="text"]::placeholder, input[type="password"]::placeholder {
   font-weight: normal;
 }
 
@@ -212,11 +229,11 @@ main > div > .card:first-child {
   color: #f1f1f1;
   display: flex;
   flex-direction: row;
-  left: 1em;
   margin: 0;
+  margin-bottom: -3.5em;
   padding: 1em;
-  position: fixed;
-  transition: bottom 0.2s, opacity 0.2s;
+  position: static;
+  transition: height 0.2s, margin 0.2s, opacity 0.2s, padding 0.2s;
 }
 
 .toast > .actions {
@@ -230,4 +247,11 @@ main > div > .card:first-child {
 .toast > .actions > .action {
   margin-left: 1em;
   user-select: none;
+}
+
+.toast-container {
+  bottom: 0;
+  left: 1;
+  padding: 0 0 0.5em 1em;
+  position: fixed;
 }
