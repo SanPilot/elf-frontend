@@ -19,7 +19,10 @@
     "createToast",
     "onconnect",
     "utility",
-    "api"
+    "api",
+    "setRoute",
+    "authRedirect",
+    "relativeDate"
   ],
 
   "debug"         : true,

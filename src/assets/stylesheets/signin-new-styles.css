@@ -3,7 +3,7 @@
 .left-section {
   align-items: center;
   display: flex;
-  margin-right: 10em;
+  margin-right: 5em;
 }
 
 .landing-text {
@@ -21,7 +21,7 @@
 .landing-text-body {
   font-size: 2em;
   opacity: 0.8;
-  max-width: 30em;
+  max-width: 25em;
 }
 
 .left-section > .card {

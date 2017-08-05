@@ -10,7 +10,8 @@ if(config.featureCheck && localStorage.getItem("dismissFeatureCheck") !== "true"
   var checkFeatures = {
     "WebSockets": window.WebSocket,
     "Dedicated WebWorkers": window.Worker,
-    "LocalStorage": window.localStorage
+    "LocalStorage": window.localStorage,
+    "History": window.onpopstate !== undefined && window.history
   },
   missing = [],
   checkFailed = false;

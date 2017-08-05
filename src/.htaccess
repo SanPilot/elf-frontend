@@ -10,6 +10,11 @@ Allow from all
 ErrorDocument 404 /pages/error/404.html
 ErrorDocument 403 /pages/error/404.html
 
+# Rewrite Rules
+RewriteEngine On
+RewriteRule ^dashboard.* dashboard.html [L]
+RewriteRule ^pages/dashboard.* pages/dashboard.html [L]
+
 # X-Frame-Options header (security)
 <IfModule headers_module>
 Header always append X-Frame-Options SAMEORIGIN

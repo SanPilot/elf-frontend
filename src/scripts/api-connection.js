@@ -57,7 +57,7 @@ var api = {
 
     // Add this to the callback array
     this.callbackArray[id] = this.backlog[index][1];
-    
+
     // In case the server doesn't respond within the timeout
     setTimeout(function() {
 
@@ -189,6 +189,12 @@ function createConnection(attempt, background) {
 
       // Execute the callback
       callback(parsed);
+
+      // If there is an auth error, redirect to signin
+      if(parsed.status !== 'success' && parsed.error === "Authentication failed") {
+        localStorage.removeItem("authToken");
+        authRedirect("You have been signed out. Please sign in again.");
+      }
 
 
     };

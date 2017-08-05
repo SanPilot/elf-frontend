@@ -10,9 +10,6 @@ Validate and authenticate user
   signinButton = document.querySelector("#action-sys"),
   processing = false;
 
-  // Focus the user field
-  user.focus();
-
   // Validate input fields
   password.onkeyup = user.onkeyup = password.onkeydown = user.onkeydown = function(e) {
 
@@ -53,13 +50,19 @@ Validate and authenticate user
 
       if(resp.status === "success") {
 
+        // Save the username
+        localStorage.setItem("user", user.value);
+
+        // Save the token to storage
         localStorage.setItem("authToken", JSON.stringify(resp.content));
-        window.location = destiny; // jshint ignore:line
+
+        // Redirect
+        authRedirect();
 
       } else {
 
         // Create incorrect password toast
-        createToast("The sign in attempt was unsuccessful.", {"Dismiss": function(){}});
+        createToast("The sign in attempt was unsuccessful.");
 
       }
 

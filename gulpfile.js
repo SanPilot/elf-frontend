@@ -32,7 +32,7 @@ var paths = {
   libs: [bases.src + 'components/**/*'],
   styles: [bases.src + 'assets/stylesheets/**/*'],
   html: [
-    [bases.src + 'pages/dashboard/*', bases.dist + 'dashboard/'],
+    [bases.src + 'pages/dashboard.html', bases.dist],
     [bases.src + 'pages/error/*', bases.dist + 'pages/error/'],
     [bases.src + 'pages/boilerplate.html', bases.dist],
     [bases.src + 'pages/signin-new.html', bases.dist, "index.html"]
