@@ -61,7 +61,7 @@ var htmlProcess = function(files) {
   }
 
   // Remove tmp files
-  del(bases.dist + 'tmp/');
+  return del(bases.dist + 'tmp/');
 
 };
 
@@ -71,34 +71,24 @@ gulp.task('clean', function() {
 });
 
 // Process styles
-gulp.task('styles', ['clean'], function() {
+gulp.task('styles', function() {
   return gulp.src(paths.styles)
-  .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
+  .pipe(autoprefixer({cascade: false }))
   .pipe(csso())
   .pipe(gulp.dest(bases.dist + "assets/stylesheets/"));
 });
 
 // Process scripts
-gulp.task('scripts', ['clean'], function() {
-  gulp.src(paths.scripts)
+gulp.task('scripts', function() {
+  return gulp.src(paths.scripts)
   .pipe(jshint())
   .pipe(jshint.reporter('default'))
   .pipe(uglify())
   .pipe(gulp.dest(bases.dist + 'scripts/'));
 });
 
-// Imagemin images and ouput them in dist
-gulp.task('imagemin', ['clean', 'generate-favicon'], function() {
-  gulp.src(paths.images)
-  .pipe(imagemin())
-  .pipe(gulp.dest(bases.dist + "assets/images/"));
-  gulp.src(['dist/*.png', 'dist/*.ico', 'dist/*.svg'])
-  .pipe(imagemin())
-  .pipe(gulp.dest(bases.dist))
-});
-
 // Copy all other files to dist directly
-gulp.task('copy', ['clean'], function() {
+gulp.task('copy', function() {
   // Copy lib scripts, maintaining the original directory structure
   gulp.src(paths.libs)
   .pipe(gulp.dest(bases.dist + 'components/'));
@@ -108,7 +98,7 @@ gulp.task('copy', ['clean'], function() {
   .pipe(gulp.dest(bases.dist + 'assets/fonts/'));
 
   // Copy extra files
-  gulp.src(paths.extras)
+  return gulp.src(paths.extras)
   .pipe(gulp.dest(bases.dist));
 });
 
@@ -174,8 +164,8 @@ gulp.task('generate-favicon', function(done) {
 // Inject the favicon markups in your HTML pages. You should run
 // this task whenever you modify a page. You can keep this task
 // as is or refactor your existing HTML pipeline.
-gulp.task('inject-favicon-markups', ['clean'], function() {
-  htmlProcess(paths.html);
+gulp.task('inject-favicon-markups', function() {
+  return htmlProcess(paths.html);
 });
 
 // Check for updates on RealFaviconGenerator (think: Apple has just
@@ -184,12 +174,22 @@ gulp.task('inject-favicon-markups', ['clean'], function() {
 // continuous integration system.
 gulp.task('check-for-favicon-update', function(done) {
   var currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
-  realFavicon.checkForUpdates(currentVersion, function(err) {
+  return realFavicon.checkForUpdates(currentVersion, function(err) {
     if (err) {
       throw err;
     }
   });
 });
 
+// Imagemin images and ouput them in dist
+gulp.task('imagemin', function() {
+  gulp.src(paths.images)
+  .pipe(imagemin())
+  .pipe(gulp.dest(bases.dist + "assets/images/"));
+  return gulp.src(['dist/*.png', 'dist/*.ico', 'dist/*.svg'])
+  .pipe(imagemin())
+  .pipe(gulp.dest(bases.dist));
+});
+
 // Define the default task as a sequence of the above tasks
-gulp.task('default', ['clean', 'scripts', 'styles', 'imagemin', 'copy', 'generate-favicon', 'inject-favicon-markups']);
+gulp.task('default', gulp.series('clean', 'scripts', 'styles', 'imagemin', 'copy', 'generate-favicon', 'inject-favicon-markups'));
