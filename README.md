@@ -1,7 +1,9 @@
 <p align="center">
-<img height="300" width="300" alt="Elf" src="https://git.sanpilot.co/SanPilot/elf-meta/raw/master/icons/elflogo2.png" style="margin-bottom: 20px">
+<img height="300" width="300" alt="Elf" src="https://git.sanpilot.co/elf/elf-meta/raw/master/icons/elflogo2.png" style="margin-bottom: 20px">
 </p>
+
 # Elf
+
 ### or, Epic Lab Form
 Frontend interface for Elf.
 
